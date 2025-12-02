@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $settings = \App\Models\Setting::pluck('value', 'key')->toArray();
+        return view('home', compact('settings'));
     }
 }

@@ -24,8 +24,23 @@
                 <a href="{{ route('admin.users') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.users') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
                     Users
                 </a>
-                <a href="{{ route('admin.settings') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
-                    Settings
+                <div class="pt-4 pb-2">
+                    <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Settings</p>
+                </div>
+                <a href="{{ route('admin.settings.site-identity') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings.site-identity') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
+                    Site Identity
+                </a>
+                <a href="{{ route('admin.settings.legal-pages') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings.legal-pages') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
+                    Legal Pages
+                </a>
+                <a href="{{ route('admin.settings.economy') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings.economy') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
+                    Economy & Currency
+                </a>
+                <a href="{{ route('admin.settings.smtp') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings.smtp') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
+                    SMTP Settings
+                </a>
+                <a href="{{ route('admin.settings.payment-gateways') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-indigo-50 hover:text-indigo-600 {{ request()->routeIs('admin.settings.payment-gateways') ? 'bg-indigo-50 text-indigo-600 font-semibold' : 'text-gray-600' }}">
+                    Payment Gateways
                 </a>
                 <form method="POST" action="{{ route('logout') }}" class="mt-4 border-t pt-4">
                     @csrf

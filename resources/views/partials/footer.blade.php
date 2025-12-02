@@ -1,8 +1,8 @@
 <footer class="bg-card border-t border-border mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
             <!-- Brand -->
-            <div class="col-span-1">
+            <div class="md:col-span-4">
                 <div class="flex items-center gap-2 mb-4">
                     @if(get_setting('site_logo'))
                         <img src="{{ asset(get_setting('site_logo')) }}" alt="{{ get_setting('site_title', 'ChatterGlow') }}" class="w-10 h-10 rounded-full object-cover">
@@ -25,7 +25,7 @@
             </div>
 
             <!-- Quick Links -->
-            <div>
+            <div class="md:col-span-2 md:col-start-6">
                 <h3 class="font-semibold mb-4">Quick Links</h3>
                 <ul class="space-y-2 text-sm text-muted-foreground">
                     <li><a href="{{ route('home') }}" class="hover:text-foreground transition-colors">Home</a></li>
@@ -36,20 +36,20 @@
             </div>
 
             <!-- Legal & Support -->
-            <div>
+            <div class="md:col-span-2">
                 <h3 class="font-semibold mb-4">Legal & Support</h3>
                 <ul class="space-y-2 text-sm text-muted-foreground">
                     <li><a href="{{ route('page.privacy') }}" class="hover:text-foreground transition-colors">Privacy Policy</a></li>
                     <li><a href="{{ route('page.terms') }}" class="hover:text-foreground transition-colors">Terms of Service</a></li>
                     <li><a href="{{ route('page.refund') }}" class="hover:text-foreground transition-colors">Refund Policy</a></li>
-                    <li><a href="{{ route('page.refund') }}" class="hover:text-foreground transition-colors">Refund Policy</a></li>
+                    <li><a href="{{ route('page.cancellation') }}" class="hover:text-foreground transition-colors">Cancellation Policy</a></li>
                 </ul>
             </div>
 
             <!-- Get in Touch -->
-            <div>
+            <div class="md:col-span-2">
                 <h3 class="font-semibold mb-4">Get in Touch</h3>
-                <p class="text-sm text-muted-foreground">
+                <p class="text-sm text-muted-foreground" @if(request('edit_mode')) contenteditable="true" data-setting-key="footer_get_in_touch" @endif>
                     {{ get_setting('footer_get_in_touch', 'Have questions? Reach out to us anytime.') }}
                 </p>
             </div>
