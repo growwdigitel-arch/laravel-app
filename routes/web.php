@@ -70,3 +70,13 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::post('/settings/ajax-update', [App\Http\Controllers\AdminController::class, 'updateSettingsAjax'])->name('settings.ajax-update');
 });
 
+// Utility Route for Storage Link (Run once on live server)
+Route::get('/fix-storage', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        return 'Storage linked successfully! You can now see your images.';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
+

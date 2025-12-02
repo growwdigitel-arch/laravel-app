@@ -6,6 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', get_setting('site_title', 'ChatterGlow') . ' - Voice Social Platform')</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="{{ get_setting('site_logo') ? asset(get_setting('site_logo')) : asset('favicon.ico') }}">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
