@@ -17,12 +17,39 @@
                     </div>
                     <div>
                         <label for="site_logo" class="block text-sm font-medium text-gray-700 mb-1">Site Logo</label>
-                        <input type="file" name="site_logo" id="site_logo" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                        @if($siteLogo)
-                            <div class="mt-2">
-                                <img src="{{ asset($siteLogo) }}" alt="Current Logo" class="h-12 w-auto object-contain">
+                        <input type="file" name="site_logo" id="site_logo" accept="image/*" onchange="previewImage(this)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                        <div class="mt-4 flex items-center gap-4">
+                            @if($siteLogo)
+                                <div id="current-logo-container">
+                                    <p class="text-xs text-gray-500 mb-1">Current Logo:</p>
+                                    <img src="{{ asset($siteLogo) }}" alt="Current Logo" class="h-16 w-auto object-contain border rounded p-1 bg-gray-50" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <span class="hidden text-xs text-red-500 mt-1">Image not found (check storage link)</span>
+                                </div>
+                            @endif
+                            <div id="new-logo-preview" class="hidden">
+                                <p class="text-xs text-gray-500 mb-1">New Selection:</p>
+                                <img id="preview-img" src="#" alt="New Logo Preview" class="h-16 w-auto object-contain border rounded p-1 bg-gray-50">
                             </div>
-                        @endif
+                        </div>
+                        <script>
+                            function previewImage(input) {
+                                const previewContainer = document.getElementById('new-logo-preview');
+                                const previewImg = document.getElementById('preview-img');
+                                
+                                if (input.files && input.files[0]) {
+                                    const reader = new FileReader();
+                                    
+                                    reader.onload = function(e) {
+                                        previewImg.src = e.target.result;
+                                        previewContainer.classList.remove('hidden');
+                                    }
+                                    
+                                    reader.readAsDataURL(input.files[0]);
+                                } else {
+                                    previewContainer.classList.add('hidden');
+                                }
+                            }
+                        </script>
                     </div>
                     <div>
                         <label for="footer_get_in_touch" class="block text-sm font-medium text-gray-700 mb-1">Footer "Get in Touch" Text</label>
